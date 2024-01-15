@@ -22,12 +22,20 @@ function Hero() {
 }
 
 function Content() {
+  console.log(countries_data);
   return (
     <div className="content">
       {countries_data.map((country) => {
         return (
           <div className="card">
             <img src={country.flag}></img>
+            <p>{country.name}</p>
+            <div>
+              <p>Capital : {country.capital}</p>
+              <p>Languages :{country.languages.join(",")}</p>
+              <p>Population : {country.population}</p>
+              <p>Region:{country.region}</p>
+            </div>
           </div>
         );
       })}
