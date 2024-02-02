@@ -36,46 +36,22 @@ function Hero() {
     );
   }
 
+  const continent = ["All", "Asia", "Africa", "Europe", "Americas"];
   return (
     <div className="main-wrapper">
       <header>
         <ul className="links">
-          <Links
-            setRegion={setRegion}
-            responsive={responsive}
-            setResponsive={setResponsive}
-          >
-            All
-          </Links>
-          <Links
-            setRegion={setRegion}
-            responsive={responsive}
-            setResponsive={setResponsive}
-          >
-            Asia
-          </Links>
-          <Links
-            setRegion={setRegion}
-            responsive={responsive}
-            setResponsive={setResponsive}
-          >
-            Africa
-          </Links>
-          <Links
-            setRegion={setRegion}
-            responsive={responsive}
-            setResponsive={setResponsive}
-          >
-            Europe
-          </Links>
-          <Links
-            setRegion={setRegion}
-            responsive={responsive}
-            setResponsive={setResponsive}
-          >
-            Americas
-          </Links>
-
+          {continent.map((con) => {
+            return (
+              <Links
+                setRegion={setRegion}
+                responsive={responsive}
+                setResponsive={setResponsive}
+              >
+                {con}
+              </Links>
+            );
+          })}
           <span className="icon" onClick={() => setResponsive(!responsive)}>
             {responsive ? <span>X</span> : <i className="fa-solid fa-bars"></i>}
           </span>
@@ -108,7 +84,7 @@ function Content({ countries }) {
     <div className="content">
       {countries.map((country) => {
         return (
-          <div className="card">
+          <div className="card" key={country.flag}>
             <img src={country.flag} alt="flag"></img>
             <p>{country.name}</p>
             <div>
