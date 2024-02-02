@@ -5,13 +5,38 @@
 }
 
 :root {
-  --primary: rgb(7, 250, 112);
+  --primary: whitesmoke;
   --secondary: rgb(203, 252, 249);
 }
 
+.main-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+header {
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  padding: 27px 10px;
+  background-color: #2229;
+}
+header .links {
+  display: flex;
+  justify-content: space-around;
+}
+.icon {
+  display: none;
+}
+li {
+  list-style: none;
+  cursor: pointer;
+}
 .hero {
   /* border: 1px solid; */
   height: 70vh;
+  /* color: whitesmoke; */
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("/public/globe-2.jpg");
   background-repeat: no-repeat;
@@ -51,14 +76,11 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  background-color: var(--secondary);
+  background-color: var(--primary);
   height: 400px;
   width: 300px;
   box-shadow: 4px 10px 18px 0 rgba(0, 0, 0, 0.5);
   border-radius: 30px;
-  border-bottom: 4px solid var(--primary);
-  border-left: 2px solid var(--primary);
-  border-right: 2px solid var(--primary);
 }
 .card img {
   width: 100%;
@@ -70,9 +92,31 @@
 .card p {
   font-size: 19px;
 }
-/* 
-.card div {
-  text-align: start;
-  border: 1px solid;
-  width: 100%;
-} */
+
+@media (max-width: 786px) {
+  header .links {
+    justify-content: end;
+  }
+  header .link {
+    display: none;
+  }
+  header .link-responsive {
+    /* display: none; */
+    padding: 10px;
+    margin-top: 10px;
+    border-bottom: 1px solid;
+  }
+  .icon {
+    display: block;
+    color: white;
+    position: absolute;
+    padding-bottom: 10px;
+    top: -10px;
+    right: 10px;
+  }
+
+  header .links {
+    display: block;
+    position: relative;
+  }
+}
